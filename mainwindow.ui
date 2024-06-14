@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1090</width>
+    <width>768</width>
     <height>600</height>
    </rect>
   </property>
@@ -78,6 +78,9 @@
     <property name="text">
      <string>5</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="extraClickBesitz">
     <property name="geometry">
@@ -90,6 +93,9 @@
     </property>
     <property name="text">
      <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="clicksProSek">
@@ -116,19 +122,6 @@
     </property>
     <property name="text">
      <string>1</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>40</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>/s</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -170,7 +163,7 @@
      <string>Besitz</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="autoClickKauf_2">
+   <widget class="QPushButton" name="autoClickKauf">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -183,7 +176,7 @@
      <string>Kaufen</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="autoClickPreis_2">
+   <widget class="QLineEdit" name="autoClickPreis">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -194,6 +187,9 @@
     </property>
     <property name="text">
      <string>5</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -209,7 +205,7 @@
      <string>+1c pro Sekunde</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="autoClickBesitz_2">
+   <widget class="QLineEdit" name="autoClickBesitz">
     <property name="geometry">
      <rect>
       <x>730</x>
@@ -220,6 +216,22 @@
     </property>
     <property name="text">
      <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sasdasdasd">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>40</y>
+      <width>49</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>/sekunde</string>
     </property>
    </widget>
   </widget>

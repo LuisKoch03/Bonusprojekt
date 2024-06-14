@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,7 +23,14 @@ private slots:
 
     void on_extraClickKauf_clicked();
 
+    void on_autoClickKauf_clicked();
+
 private:
     Ui::MainWindow *ui;
+    void updateCounter();
+    QTimer *timer;
+    int clicks;
+    int clicksPerClick;
+    int clicksPerSecond;
 };
 #endif // MAINWINDOW_H
