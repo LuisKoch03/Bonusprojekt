@@ -25,6 +25,16 @@ private slots:
 
     void on_autoClickKauf_clicked();
 
+    void on_wetteStart_clicked();
+
+    void on_hoeher_clicked();
+
+    void on_niedriger_clicked();
+
+    void on_spielLaden_clicked();
+
+    void on_spielSpeichern_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     void updateCounter();

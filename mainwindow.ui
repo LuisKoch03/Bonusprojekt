@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
-    <height>600</height>
+    <width>591</width>
+    <height>295</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>591</width>
+    <height>295</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>591</width>
+    <height>295</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,10 +29,10 @@
    <widget class="QPushButton" name="clickMich">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>60</y>
+      <x>240</x>
+      <y>100</y>
       <width>80</width>
-      <height>24</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -30,11 +42,17 @@
    <widget class="QLineEdit" name="clicks">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>40</y>
-      <width>113</width>
-      <height>24</height>
+      <x>210</x>
+      <y>20</y>
+      <width>151</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -43,8 +61,8 @@
    <widget class="QPushButton" name="extraClickKauf">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>160</y>
+      <x>420</x>
+      <y>210</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -56,8 +74,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>160</y>
+      <x>320</x>
+      <y>210</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -69,8 +87,8 @@
    <widget class="QLineEdit" name="extraClickPreis">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>160</y>
+      <x>510</x>
+      <y>210</y>
       <width>31</width>
       <height>24</height>
      </rect>
@@ -85,8 +103,8 @@
    <widget class="QLineEdit" name="extraClickBesitz">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>160</y>
+      <x>540</x>
+      <y>210</y>
       <width>31</width>
       <height>24</height>
      </rect>
@@ -101,8 +119,8 @@
    <widget class="QLineEdit" name="clicksProSek">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>40</y>
+      <x>10</x>
+      <y>10</y>
       <width>51</width>
       <height>24</height>
      </rect>
@@ -110,12 +128,15 @@
     <property name="text">
      <string>0</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="clicksProClick">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>70</y>
+      <x>10</x>
+      <y>40</y>
       <width>51</width>
       <height>24</height>
      </rect>
@@ -123,12 +144,15 @@
     <property name="text">
      <string>1</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>70</y>
+      <x>70</x>
+      <y>40</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -140,8 +164,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>140</y>
+      <x>510</x>
+      <y>190</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -153,8 +177,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>140</y>
+      <x>540</x>
+      <y>190</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -166,8 +190,8 @@
    <widget class="QPushButton" name="autoClickKauf">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>190</y>
+      <x>420</x>
+      <y>240</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -179,8 +203,8 @@
    <widget class="QLineEdit" name="autoClickPreis">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>190</y>
+      <x>510</x>
+      <y>240</y>
       <width>31</width>
       <height>24</height>
      </rect>
@@ -195,8 +219,8 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>190</y>
+      <x>320</x>
+      <y>240</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -208,8 +232,8 @@
    <widget class="QLineEdit" name="autoClickBesitz">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>190</y>
+      <x>540</x>
+      <y>240</y>
       <width>31</width>
       <height>24</height>
      </rect>
@@ -224,14 +248,143 @@
    <widget class="QLabel" name="sasdasdasd">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>40</y>
+      <x>70</x>
+      <y>10</y>
       <width>49</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>/sekunde</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="wettBetrag">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Wettbetrag Eingeben</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="karte1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Karte 1</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="karte2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Karte 2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wetteStart">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>200</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="hoeher">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>230</y>
+      <width>81</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>höher</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="niedriger">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>260</y>
+      <width>81</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>niedriger</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ergebniss">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Höher/Niedriger</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="spielLaden">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>10</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Spielstand Laden</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="spielSpeichern">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>40</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Spiel Speichern</string>
     </property>
    </widget>
   </widget>
