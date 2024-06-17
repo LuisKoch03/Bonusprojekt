@@ -35,6 +35,8 @@ private slots:
 
     void on_spielSpeichern_2_clicked();
 
+    void on_autoClickKauf_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     void updateCounter();

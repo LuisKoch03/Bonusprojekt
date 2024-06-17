@@ -76,6 +76,33 @@ void MainWindow::updateCounter()
 {
     clicks = clicks + clicksPerSecond;
     ui->clicks->setText(QString::number(clicks));
+    if (clicks >= ui->extraClickPreis->text().toInt())
+    {
+        ui->extraClickKauf->setStyleSheet("background-color : #90EE90");
+    }
+
+    else
+    {
+        ui->extraClickKauf->setStyleSheet("background-color : #FF6347");
+    }
+
+    if (clicks >= ui->autoClickPreis->text().toInt())
+    {
+        ui->autoClickKauf->setStyleSheet("background-color : #90EE90");
+    }
+    else
+    {
+        ui->autoClickKauf->setStyleSheet("background-color : #FF6347");
+    }
+
+    if (clicks >= ui->autoClickPreis_2->text().toInt())
+    {
+        ui->autoClickKauf_2->setStyleSheet("background-color : #90EE90");
+    }
+    else
+    {
+        ui->autoClickKauf_2->setStyleSheet("background-color : #FF6347");
+    }
 }
 
 void MainWindow::on_wetteStart_clicked()
@@ -196,6 +223,24 @@ void MainWindow::on_spielSpeichern_2_clicked()
     } else {
         // Wenn der Benutzer den Dialog geschlossen oder abgebrochen hat
         qDebug() << "Speichern abgebrochen.";
+    }
+}
+
+
+void MainWindow::on_autoClickKauf_2_clicked()
+{
+    int autoClickPreis = ui->autoClickPreis_2->text().toInt();
+    int autoClickBesitz = ui->autoClickBesitz_2->text().toInt();
+    if(clicks >= autoClickPreis)
+    {
+        clicks = clicks - autoClickPreis;
+        clicksPerSecond += 5;
+        ui->clicksProSek->setText(QString::number(clicksPerSecond));
+        autoClickBesitz++;
+        autoClickPreis = autoClickPreis * 2;
+        ui->autoClickPreis_2->setText(QString::number(autoClickPreis));
+        ui->autoClickBesitz_2->setText(QString::number(autoClickBesitz));
+        ui->clicks->setText(QString::number(clicks));
     }
 }
 
