@@ -2,10 +2,11 @@
 #include "ui_mainwindow.h"
 #include "kartenstapel.h"
 
-#include <iostream>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
+#include <QTextStream>
+#include <QFile>
 
 
 KartenStapel stapel;
@@ -68,6 +69,23 @@ void MainWindow::on_autoClickKauf_clicked()
         autoClickPreis = autoClickPreis * 2;
         ui->autoClickPreis->setText(QString::number(autoClickPreis));
         ui->autoClickBesitz->setText(QString::number(autoClickBesitz));
+        ui->clicks->setText(QString::number(clicks));
+    }
+}
+
+void MainWindow::on_autoClickKauf_2_clicked()
+{
+    int autoClickPreis = ui->autoClickPreis_2->text().toInt();
+    int autoClickBesitz = ui->autoClickBesitz_2->text().toInt();
+    if(clicks >= autoClickPreis)
+    {
+        clicks = clicks - autoClickPreis;
+        clicksPerSecond += 5;
+        ui->clicksProSek->setText(QString::number(clicksPerSecond));
+        autoClickBesitz++;
+        autoClickPreis = autoClickPreis * 2;
+        ui->autoClickPreis_2->setText(QString::number(autoClickPreis));
+        ui->autoClickBesitz_2->setText(QString::number(autoClickBesitz));
         ui->clicks->setText(QString::number(clicks));
     }
 }
@@ -195,52 +213,84 @@ void MainWindow::on_niedriger_clicked()
 
 void MainWindow::on_spielLaden_clicked()
 {
-    QString filter = "Textdateien (*.txt);;Alle Dateien (*.*)";
+    QString filter = "Savedateien (*.save)";
     QString file = QFileDialog::getOpenFileName(this, "Datei auswählen", QDir::homePath(), filter);
 
-    if (!file.isEmpty()) {
+    if (!file.isEmpty())
+    {
+        QFile loadFile(file);
+        if (loadFile.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            QTextStream in(&loadFile);
 
-        qDebug() << "Ausgewählte Datei: " << file;
-    } else {
-        qDebug() << "Keine Datei ausgewählt.";
+            if (!in.atEnd())
+            {
+                ui->clicks->setText(in.readLine());
+                clicks = ui->clicks->text().toInt();
+            }
+
+
+            if (!in.atEnd())
+            {
+                ui->clicksProClick->setText(in.readLine());
+                clicksPerClick = ui->clicksProClick->text().toInt();
+            }
+
+
+            if (!in.atEnd())
+            {
+                ui->clicksProSek->setText(in.readLine());
+                clicksPerSecond = ui->clicksProSek->text().toInt();
+            }
+
+            if (!in.atEnd()) { ui->extraClickBesitz->setText(in.readLine()); }
+            if (!in.atEnd()) { ui->extraClickPreis->setText(in.readLine()); }
+
+            if (!in.atEnd()) { ui->autoClickBesitz->setText(in.readLine()); }
+            if (!in.atEnd()) { ui->autoClickPreis->setText(in.readLine()); }
+
+            if (!in.atEnd()) { ui->autoClickBesitz_2->setText(in.readLine()); }
+            if (!in.atEnd()) { ui->autoClickPreis_2->setText(in.readLine()); }
+
+            loadFile.close();
+        }
     }
 }
 
 
-void MainWindow::on_spielSpeichern_2_clicked()
+void MainWindow::on_spielSpeichern_clicked()
 {
-    QString filter = "Textdateien (*.txt)";
-    QString speicherName = "Save_";
+    QString filter = "Savedateien (*.save)";
+    QString speicherName = "ClickerSave_";
     QDateTime uhrzeit = QDateTime::currentDateTime();
     QString uhrzeitStr = uhrzeit.toString("yyyyMMdd_hhmmss");
-    speicherName += uhrzeitStr + ".txt";
+    speicherName += uhrzeitStr + ".save";
 
-    QString filePath = QFileDialog::getSaveFileName(this, "Datei speichern", QDir::homePath(), filter, &speicherName);
+    QString filePath = QFileDialog::getSaveFileName(this, "Datei speichern", QDir::homePath() + "/" + speicherName, filter);
 
-    if (!filePath.isEmpty()) {
-        // Hier kannst du die Datei speichern oder mit dem Dateipfad 'filePath' weiterarbeiten
-        qDebug() << "Gespeichert unter: " << filePath;
-    } else {
-        // Wenn der Benutzer den Dialog geschlossen oder abgebrochen hat
-        qDebug() << "Speichern abgebrochen.";
-    }
-}
-
-
-void MainWindow::on_autoClickKauf_2_clicked()
-{
-    int autoClickPreis = ui->autoClickPreis_2->text().toInt();
-    int autoClickBesitz = ui->autoClickBesitz_2->text().toInt();
-    if(clicks >= autoClickPreis)
+    if (!filePath.isEmpty())
     {
-        clicks = clicks - autoClickPreis;
-        clicksPerSecond += 5;
-        ui->clicksProSek->setText(QString::number(clicksPerSecond));
-        autoClickBesitz++;
-        autoClickPreis = autoClickPreis * 2;
-        ui->autoClickPreis_2->setText(QString::number(autoClickPreis));
-        ui->autoClickBesitz_2->setText(QString::number(autoClickBesitz));
-        ui->clicks->setText(QString::number(clicks));
+        QFile file(filePath);
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream out(&file);
+
+            out << clicks << "\n";
+
+            out << ui->clicksProClick->text() << "\n";
+            out << ui->clicksProSek->text() << "\n";
+
+            out << ui->extraClickBesitz->text() << "\n";
+            out << ui->extraClickPreis->text() << "\n";
+
+            out << ui->autoClickBesitz->text() << "\n";
+            out << ui->autoClickPreis->text() << "\n";
+
+            out << ui->autoClickBesitz_2->text() << "\n";
+            out << ui->autoClickPreis_2->text() << "\n";
+
+            file.close();
+        }
     }
 }
 

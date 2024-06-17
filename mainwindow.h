@@ -33,7 +33,7 @@ private slots:
 
     void on_spielLaden_clicked();
 
-    void on_spielSpeichern_2_clicked();
+    void on_spielSpeichern_clicked();
 
     void on_autoClickKauf_2_clicked();
 
